@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form Validation Using JavaScript.</title>
+</head>
+<body>
+	<div align="center" style="background-color: lightblue; width: 500px; height: 650px; margin-left: 500px; border: 3px solid black; border-radius: 20px;">
+		<form action="#" onsubmit="return validation()">
+		<h1 style="background-color: red; width: 350px; border: 2px solid black; border-radius: 5px;">PCS Login Format</h1>
+
+       <label style="margin-left: -255px; font-size: 25px;">FirstName</label></br>
+
+       <input type="text" name="" id="firstname" autocomplete="off" style="margin-left: -180px; padding: 5px; border: 2px solid black;"></br>
+       <span id="fname"></span></br></br>
+
+
+       <label style="margin-left: -255px; font-size: 25px;">LastName</label></br>
+
+       <input type="text" name="" id="lastname" autocomplete="off" style="margin-left: -180px; padding: 5px; border: 2px solid black;"></br>
+       <span id="lname"></span></br></br>
+
+
+       <label style="margin-left: -295px; font-size: 25px;">Email</label></br>
+
+       <input type="text" name="" id="email" autocomplete="off" style="margin-left: -180px; padding: 5px; border: 2px solid black;"></br>
+       <span id="emailid"></span></br></br>
+
+
+       <label style="margin-left: -255px; font-size: 25px;">Password</label></br>
+
+       <input type="password" name="" id="password" autocomplete="off" style="margin-left: -180px; padding: 5px; border: 2px solid black;"></br>
+       <span id="pass"></span></br></br>
+
+
+       <label style="margin-left: -195px; font-size: 25px;">Mobile Number</label></br>
+
+       <input type="text" name="" id="mobilenumber" autocomplete="off" style="margin-left: -180px; padding: 5px; border: 2px solid black;"></br>
+       <span id="mobno"></span></br></br>
+
+
+       <input type="submit" name="submit1" value="Login" style="background-color: lightblue; font-size: 1em; padding: 10px; border: 2px solid black; margin-left: -290px;">
+   </form>
+	</div>
+
+
+	<script type="text/javascript">
+		
+		function validation()
+		{
+            var fname = document.getElementById('firstname').value;
+            var lname = document.getElementById('lastname').value;
+            var emailid = document.getElementById('email').value;
+            var passw = document.getElementById('password').value;
+            var mobnob = document.getElementById('mobilenumber').value; 
+
+            if(fname == "")
+            {
+            	document.getElementById('fname').innerHTML = " *** Please Fill Your FirstName Field...";
+
+            	return false;
+            }
+            
+            if((fname.length <=2) || (fname.length >15))
+            {
+            	document.getElementById('fname').innerHTML = " *** First Name Should Between 2 to 15...";
+
+            	return false;
+            }
+
+            if(!isNaN(fname))
+            {
+            	document.getElementById('fname').innerHTML = " *** Only Characters are allowed...";
+
+            	return false;
+            }
+
+
+
+
+            if(lname == "")
+            {
+            	document.getElementById('lname').innerHTML = " *** Please Fill Your LastName Field...";
+
+            	return false;
+            } 
+
+            if((lname.length <=2) || (lname.length >10))
+            {
+            	document.getElementById('lname').innerHTML = " *** Last Name Should Between 2 to 10...";
+
+            	return false;
+            }
+
+            if(!isNaN(lname))
+            {
+            	document.getElementById('lname').innerHTML = " *** Only Characters are allowed...";
+
+            	return false;
+            }
+
+
+
+
+
+            if(emailid == "")
+            {
+            	document.getElementById('emailid').innerHTML = " *** Please Fill Your EmailId Field...";
+
+            	return false;
+            }  
+
+            if(emailid.indexOf('@') <= 0)
+            {
+            	document.getElementById('emailid').innerHTML = " *** You Cannot Starts With @...";
+
+            	return false;
+            }
+
+            if((emailid.charAt(emailid.length-4) != '.') && (emailid.charAt(emailid.length-3) != '.'))
+            {
+            	document.getElementById('emailid').innerHTML = " *** . is At Invalid Position(use only 2 or 3 Characters after . )...";
+
+            	return false;
+            }
+
+
+
+
+
+            if(passw == "")
+            {
+            	document.getElementById('pass').innerHTML = " *** Please Fill Your Password Field...";
+
+            	return false;
+            }  
+
+            if((passw.length <=5) || (passw.length >100))
+            {
+            	document.getElementById('pass').innerHTML = " *** Password Should be greater than 5 Characters...";
+
+            	return false;
+            }
+
+
+
+
+
+            if(mobnob == "")
+            {
+            	document.getElementById('mobno').innerHTML = " *** Please Fill Your Mobile Number Field...";
+
+            	return false;
+            }    
+
+            if(isNaN(mobnob))
+            {
+            	document.getElementById('mobno').innerHTML = " *** Use Only Numbers not Characters...";
+
+            	return false;
+            }
+
+            if(mobnob.length!=10)
+            {
+            	document.getElementById('mobno').innerHTML = " *** Mobile Number Must be of 10 Digits...";
+
+            	return false;
+            }
+
+
+
+           alert("logIn Successfull.....");
+
+
+		}
+
+	</script>
+</body>
+</html>
